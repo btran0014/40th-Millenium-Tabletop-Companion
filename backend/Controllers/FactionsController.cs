@@ -39,5 +39,21 @@ namespace backend.Controllers
             var response = new FactionResponseDTO(faction.Id, faction.Name, 0);
             return CreatedAtAction(nameof(GetFactions), new {id = faction.Id}, response);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteFaction(int id)
+        {
+            if (id <= 0)
+            return BadRequest("ID needs to be positive.");
+
+            var faction = await _context.Factions.FindAsync(id);
+            if (faction == null)
+            {
+                return BadRequest("This item does not exist.");
+            }
+            _context.Factions.Remove(faction);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }
