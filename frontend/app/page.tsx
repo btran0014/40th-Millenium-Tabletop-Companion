@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100 p-8 max-w-2xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">40th Millenium Tabletop Companion</h1>
+      <h1 className="text-3xl font-bold mb-6">40th Millennium Tabletop Companion</h1>
 
       <form onSubmit={handleAddFaction} className="flex gap-3 mb-8">
         <input
